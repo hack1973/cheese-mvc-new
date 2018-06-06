@@ -34,4 +34,16 @@ public class CheeseController {
         cheeses.put(cheeseName, cheeseDescription);
         return "redirect:";
     }
+
+    @RequestMapping(value = "remove", method = RequestMethod.GET)
+    public String displayRemoveCheeseForm(Model model){
+        model.addAttribute("title", "Remove Cheese");
+        return "cheese/remove";
+    }
+
+    @RequestMapping(value = "remove", method = RequestMethod.POST)
+    public String processRemoveCheeseForm(@RequestParam String cheeseName, @RequestParam String cheeseDescription) {
+        cheeses.put(cheeseName, cheeseDescription);
+        return "redirect:";
+    }
 }
