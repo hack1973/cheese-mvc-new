@@ -10,6 +10,8 @@
 
 <p>
 
+<h4>Remove a single cheese at a time using drop-down box below.</h4>
+
 <form method="post" th:if="${cheeses} and ${cheeses.size()}" >
 
         <select name="cheese">
@@ -19,6 +21,25 @@
         <input type="submit" value="Remove Cheese" />
 
 </form>
+
+</p>
+
+<p>
+
+<h4>Remove multiple cheeses at a time using checkboxes below.</h4>
+
+    <form method="post" th:if="${cheeses} and ${cheeses.size()}">
+
+    <th:block th:each="cheese : ${cheeses}">
+
+        <input type="checkbox" name="cheese" th:text="${cheese.key} + ' : ' + ${cheese.value}" th:value="${cheese.key}" />
+
+        <br/>
+    </th:block>
+
+    <input type="submit" value="Remove Cheeses" />
+
+    </form>
 
 </p>
 
